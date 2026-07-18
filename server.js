@@ -2,9 +2,13 @@ const express = require("express");
 
 const app = express();
 
+const notificationRoutes = require("./routes/notificationRoutes");
+
 const PORT = 5000;
 
 app.use(express.json());
+
+app.use("/",notificationRoutes);
 
 let notifications = [];
 
