@@ -5,7 +5,16 @@ function createNotification(req,res){
         title,
         message,
         (err,result)=>{
-            
+            if(err){
+                return res.status(500).json({
+                    error: err.message
+                    
+                });
+            }
+            res.status(201).json({
+                message: "Notification created successfully",
+                data: result
+            });
         }
     )
 
