@@ -10,6 +10,17 @@ function createNotification(title,message,callback){
         callback(null,result);
     });
 }
+function getAllNotifications(callback){
+         const query = `SELECT * FROM notification`;
+         db.query(query,(err,result)=>{
+            if(err){
+                return callback(err,null);
+            }
+            callback(null,result);
+         });
+
+}
 module.exports={
-    createNotification
+    createNotification,
+    getAllNotifications
 };
