@@ -19,3 +19,18 @@ function createNotification(req,res){
     )
 
 }
+function getAllNotifications(req,res){
+    notificationModel.getAllNotifications((err,result)=>{
+        if(err){
+            return res.status(500).json({
+                message: "Failed to get notifications"
+            });
+        }
+        res.status(200).json(result);
+    });
+}
+
+module.exports = {
+    createNotification,
+    getAllNotifications
+};
